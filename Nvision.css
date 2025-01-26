@@ -1,0 +1,84 @@
+body {
+    font-family:'Times New Roman', Times, serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top ,#e9fffe , #6bb3d6);
+    color: #333;
+}
+.header  {
+    color: white;
+    text-align: center;
+
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-family: cursive;
+
+}
+
+.header p {
+    font-size: 1.5rem;
+    font-family:cursive;
+}
+
+.content {
+    padding: 20px;
+}
+
+.section {
+    background: linear-gradient(0deg,#c9c2ec,#c2d6d4);
+    margin: 50px 70px;
+    padding: 20px;
+    border-radius: 100px;
+    box-shadow: 0 0 100px rgba(30, 78, 144, 0.973);
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    color: rgb(25, 176, 161);
+    margin-bottom: 10px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 30px;
+}
+
+.section p {
+    font-size: 1.5rem;
+    color: rgb(200, 60, 139);
+    margin-bottom: 10px;
+    font-family:cursive ;
+    margin-left: 40px;
+    
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section ul li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    margin-left: 60px;
+    line-height: 1.5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section ul li strong {
+    color: #83aa2f;
+ 
+}
+
+
+.footer {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    position: relative;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}

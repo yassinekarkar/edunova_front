@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">  <!-- Link to CSS -->
+    <title>EduNova </title>
+</head>
+<body>
+    <header>
+      <img src="logo.gif" alt="Logo EduNova">
+      <h1><a href="indexx.html" style="text-decoration: none; color: aliceblue;"> ÉduNova</a></h1>
+      <div class="header__btn_menu">
+        <div class="btn_menu">
+          <img src="menu_icon_150667.webp" alt="">
+      </div>
+      </div> 
+  </header>
+  <div class="container">
+    <div class="text-section">
+        <h1>
+            <span>Préserver</span>
+            <span>Progresser</span>
+            <span>Briller &nbsp; &nbsp; <button ><a href="notrevision.html" target="_blank" style="text-decoration: none; color: inherit;" >Notre vision</a></button></span>
+        </h1>
+    </div>
+
+    <div class="image-section">
+        <img src="images/image.png" alt="Technology Image">
+    </div>
+    <button class="down_arrow" onclick="scrollDown()">
+      <img src="down-arrow.png" alt="Down Arrow">
+    </button>
+      <ul class="menu">
+        <div class="links">
+          <li><a href="apprenant.html">Appren<span>a</span>nt</a></li>
+          <li><a href="enseignant.html" >En<span>s</span>eignant</a></li>
+          <li><a href="parent.html">Par<span>e</span>nt</a></li>
+          <li><a href="notrevision.html" target="_blank" style="text-decoration: none;" >N<span>o</span>tre vi<span>s</span>ion</a></li>
+          <li><a href="contact.html">Con<span>t</span>act</a></li>
+      </div>
+      </ul>
+  </div>
+  
+    <div class="content" id="content">
+        <span><p> Un espace où l'apprentissage devient une nouvelle aventure! <br> <br>
+        Avec ÉduNova, chaque utilisateur trouve des outils adaptés à ses besoins pour rendre l’apprentissage simple, amusant et enrichissant. Rejoignez-nous pour explorer un monde d’éducation vibrant, accessible et pensé pour l’avenir.</p></span>
+        <img src="images/Design.gif">
+
+    </div>
+
+    <div class="blob" id="blob"></div>
+    <div class="blur" id="blur"></div>
+    <footer class="footer">
+      <p>EduNova - Ensemble, Construisons un Avenir Meilleur</p>
+      <p>&copy; 2024/2025 Site Éducatif. Tous droits réservés.</p> 
+  </footer>
+    
+    
+    <script>
+     function scrollDown() {
+      window.scrollBy({
+        top: 800, // Adjust this value to control how far you scroll down each time
+        left: 0,
+        behavior: 'smooth' // Smooth scrolling
+      });
+    }
+
+        const blob = document.getElementById("blob");
+        document.body.onpointermove = event => {
+            const{ clientX, clientY}= event;
+            blob.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            },{duration:2000, fill:"forwards"});
+            
+        }
+        let menu = document.querySelector(".menu");
+        let btnMenu = document.querySelector(".btn_menu");
+
+        btnMenu.onclick = function(){
+            if(menu.style.transform == "translateY(-100%)"){
+                menu.style.transform = "translateY(0)"
+                document.body.style.overflow = "hidden";
+            }else {
+                menu.style.transform = "translateY(-100%)";
+                document.body.style.overflow = "auto";
+            }
+        }
+
+       
+
+
+    </script>  <!-- Link to JavaScript -->
+
+</body>
+</html>
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNova</title>
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="enseignantFormulaire.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <img src="logo.gif" alt="Logo EduNova">
+        <h1><strong>ÉduNova</strong></h1>
+        <nav>
+            <a href="apprenant.html"><strong>Apprenant</strong></a>
+            <a href="enseignant.html"><strong>Enseignant</strong></a>
+            <a href="parent.html"><strong>Parent</strong></a>
+        </nav>
+    </header>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <!-- Section gauche -->
+        <div class="left-section">
+            <div class="image-container">
+                <img src="images/inscription.jfif" alt="Illustration">
+            </div>
+            <p class="description">
+                <strong>Inspirez et enseignez dans un cadre moderne.</strong>
+            </p>
+        </div>
+        <div class="right-section">
+            <h2><strong>Inscrivez-vous</strong></h2>
+            <form action="votre_script.php" method="post">
+                <!-- Champ Nom et Prénom -->
+                <input type="text" placeholder="Nom" name="nom" required>
+                <input type="text" placeholder="Prénom" name="prenom" required>
+                <!-- Champ Email -->
+                <input type="email" placeholder="Email" name="email" required>
+                <!-- Champ Mot de Passe -->
+                <input type="password" placeholder="Mot de passe" name="mot_de_passe" required>
+                <!-- Bouton Soumettre -->
+                <button type="submit">Inscrivez-vous</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

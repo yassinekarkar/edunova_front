@@ -1,0 +1,171 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top, #e9fffe, #6bb3d6);
+    
+    height: 100vh;
+}
+
+/* En-tête */
+header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding: 10px 50px;
+    z-index: 2;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    margin-top: -70px;
+
+}
+
+header h1 {
+   
+    font-size: 2em;
+    color: #050a30;
+    font-family: sergio Trendy;
+    margin-right: 750px;  
+             
+}
+header nav { 
+    margin-right: 100px;
+    
+}
+header nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #050a30;
+    font-size: 1.5rem;
+    font-family: sergio Trendy;
+}
+header img {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 6px rgba(58, 58, 58, 0.1); 
+    margin-top: -20px;
+}
+header nav a:hover {
+    color: #9d0049;
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    width: 80%;
+    margin: 80px; /* Ajustement pour éviter de chevaucher l'en-tête */
+    padding: 50px;
+    background: linear-gradient(45deg, #c3edf6, #f3e9c2);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-sizing:content-box;
+    
+}
+
+/* Section gauche */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.image-container img {
+    max-width: 80%;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 50px rgba(0, 1, 16, 0.644);
+}
+
+.description {
+    font-size: 1.5rem;
+    color: #d2ac15;
+    margin-top: 50px;
+    font-family: cursive;
+
+}
+
+.right-section {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+    margin-top:30px; /* Ajout de l'espace supérieur */
+    border-radius: 20px; /* Coins arrondis pour un design moderne */
+    align-items: center;
+}
+
+/* Titre de la section d'inscription */
+.right-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #a18101;
+    text-align: center; /* Centrer le titre */
+    font-family: cursive;
+}
+
+/* Formulaire */
+form {
+    width: 100%; /* Ajustement pour prendre toute la largeur disponible */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement uniforme entre les champs */
+    padding: 20px 10px; /* Espacement intérieur du formulaire */
+}
+
+input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    color: #333;
+    outline: none;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #5290c2, #0a0caf);
+    border-radius: 200px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 60%;
+    align-self: center;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Adaptabilité pour les écrans étroits */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+        padding: 10px;
+    }
+}

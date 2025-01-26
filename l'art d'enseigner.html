@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉduNova - L'art d'enseigner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to top ,#e9fffe , #6bb3d6);
+            
+            
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            padding: 10px 50px;
+            z-index: 2;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: transparent;
+         
+        }
+    
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #050a30;
+            font-family: sergio Trendy;
+            margin-right: 750px;             
+        }
+
+        header nav { 
+            margin-right: 100px;
+            
+        }
+        header nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #050a30;
+            font-size: 1.5rem;
+            font-family: sergio Trendy;
+
+        }
+        header img {
+            display: flex;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0px 10px 6px rgba(58, 58, 58, 0.1); 
+            
+        }
+        .content {
+            text-align: left;
+            padding: 50px;
+            font-size: 1.5rem;
+            font-family: cursive;
+            color: rgb(153, 130, 0);
+            z-index: 2;
+
+        }
+        .content h2 {
+            color: #ed0096;
+            font-family: cursive;
+            text-align: center;
+            z-index: 2;
+        }
+        .content p {
+            margin: 0 auto 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: justify;
+            font-size: 1.3rem;
+            color: #000;
+            
+        }
+  
+        .illustrations,
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:30px;
+            justify-items: center;
+            margin: 30px auto;
+            width: 1000px;
+            z-index: 2;
+         
+        }
+        .illustrations a,
+        .videos a {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            border: 2px solid #67cdcb;
+            overflow: hidden;
+            z-index: 2;
+        }
+        .illustrations img,
+        .videos img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+        }
+        .videos a::after {
+            content: "\25BA"; /* Unicode for play button symbol */
+            font-size: 50px;
+            color: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-container {
+            position: relative;
+            max-width: 90%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display:flex;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-item {
+            flex: 0 0 25%; /* Each item takes 25% of the container */
+            box-sizing: border-box;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            opacity: 0.5; /* De-emphasize non-active items */
+            transform: scale(0.9); /* Smaller size for non-active items */
+        }
+
+        .carousel-item.active {
+            transform: scale(1); /* Enlarge the active item */
+            opacity: 1; /* Make it fully visible */
+        }
+
+        .carousel-item img {
+            width: 80%;
+            height: 40%;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .carousel-item p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(50%);
+            z-index: 10;
+        }
+
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+   
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .description-container {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .blob{
+            background: linear-gradient(to right , #f3e0ec, #c6e5f8);
+            height: 30px;
+            aspect-ratio: 1;
+            position: fixed;
+            left: 50%;
+            top:50%;
+            translate: -50% -50%;
+            border-radius: 50%;
+            animation: rotate 30s infinite;
+            box-shadow: #e3feff;
+            filter: blur(10px);
+        }
+
+        @keyframes rotate {
+            from {
+                rotate: 0deg;
+            }
+            50%{
+                scale: 11;
+            }
+            to {
+                rotate: 360deg;
+            }
+        }
+        .blur{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 2;
+            backdrop-filter: blur(200px);
+            lighting-color: transparent;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.gif" alt="Logo EduNova">
+        <h1><a href="indexx.html" style="text-decoration: none; color: inherit;"> ÉduNova</a></h1>
+        <nav>
+            <a href="apprenant.html"><strong>Apprenant</strong></a>
+            <a href="enseignant.html" ><strong>Enseignant</strong></a>
+            <a href="parent.html"><strong>Parent</strong></a>
+        </nav>
+    </header>
+    <div class="content">
+        <h2>L'art d'enseigner</h2>
+        <p>
+            On vous offre des multiples illustrations et vidéos, téléchargeables, 
+            qui peuvent vous aider à enrichir votre pratique professionnelle. 
+            De plus, on met à votre disposition des différents articles qui peuvent 
+            vous guider à mieux agir avec ceux qui souffrent des difficultés d'apprentissage 
+            ou bien pour adopter des meilleures stratégies pour réussir votre profession.
+        </p>
+        <div class="content">
+            <h3>Les illustrations :</h3>
+            <div class="illustrations">
+                <a href="contenu d'edunova/5(1).png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/5(1).png" alt="Illustration 6">
+                </a>
+                <a href="contenu d'edunova/6.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/6.png" alt="Illustration 1"> 
+                </a>
+                <a href="contenu d'edunova/1(1).png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/1(1).png" alt="Illustration 2">
+                </a>
+                <a href="contenu d'edunova/2(1).png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/2(1).png" alt="Illustration 3">
+                </a>
+                <a href="contenu d'edunova/4(1).png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/4(1).png" alt="Illustration 6">
+                </a>
+
+                <a href="contenu d'edunova/3(1).png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/3(1).png" alt="Illustration 5">
+                </a>
+                <a href="contenu d'edunova/2.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/2.png" alt="Illustration 6">
+                </a>
+                <a href="contenu d'edunova/3.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/3.png" alt="Illustration 6">
+                </a>  
+                <a href="contenu d'edunova/4.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/4.png" alt="Illustration 6">
+                </a>
+                <a href="contenu d'edunova/1.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/1.png" alt="Illustration 4">
+                </a>
+  
+                <a href="contenu d'edunova/5.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/5.png" alt="Illustration 6">
+                </a>
+                <a href="contenu d'edunova/n devient m devant.png" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgb(255, 255, 255);">
+                    <img src="contenu d'edunova/n devient m devant.png" alt="Illustration 6">
+                </a>
+            </div>
+        </div>
+        <div>
+            <h3>Les vidéos :</h3>
+            <div class="videos">
+                <a href="contenu d'edunova/les vidéos/verbes en ir.mp4" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgba(130, 130, 130, 0.632);">
+                    <img src="c:\Users\GSI\Desktop\Edunova\contenu d'edunova\les vidéos\verbes en ir.png" alt="Vidéo 1">
+                </a>
+                <a href="contenu d'edunova/les vidéos/pollution.mp4" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgba(130, 130, 130, 0.632);">
+                    <img src="contenu d'edunova/les vidéos/pollutionn.jpg" alt="Vidéo 2">
+                </a>
+                <a href="contenu d'edunova/les vidéos/émotions.mp4" download style="   border-radius: 30px;
+            box-shadow: 0 0 100px rgba(130, 130, 130, 0.632);">
+                    <img src="contenu d'edunova/les vidéos/émotion.jpg" alt="Vidéo 3">
+                </a>
+            </div>
+        </div>
+        <div>
+        <h3>Les articles :</h3>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-item">
+                    <a href="contenu d'edunova/les articles/strategies.pdf" download="article1.pdf">
+                        <img src="contenu d'edunova/les articles/stratégie d'enseignement.png" alt="Article 1">
+                    </a>
+                    <h4>Stratégies et méthodes d'enseignement</h4>
+                    <p>Ce guide publié par Alberta Education présente diverses techniques pédagogiques pour aider les enseignants à créer des environnements d'apprentissage interactifs et engageants. </p>
+                </div>
+                <div class="carousel-item">
+                    <a href="contenu d'edunova/les articles/Guide à l'usage des enseignants.pdf" download="article2.pdf">
+                        <img src="contenu d'edunova/les articles/Guide à l'usage des enseignants.jpg" alt="Article 2">
+                    </a>
+                    <h4>Guide de la voix à l'usage des enseignants</h4>
+                    <p>Ce guide de l'AEFE propose des conseils pratiques pour les enseignants afin d'accompagner les élèves présentant des troubles d'apprentissage, avec des stratégies adaptées à différents types de difficultés.</p>
+                </div>
+                <div class="carousel-item">
+                    <a href="contenu d'edunova/les articles/Enseigner aux élèves ayant des difficultés d'apprentissage et de comportement.pdf" download="article3.pdf">
+                        <img src="contenu d'edunova/les articles/Enseigner aux élèves ayant des difficultés d'apprentissage et de comportement.jpeg" alt="Article 3">
+                    </a>
+                    <h4>Enseigner aux élèves en difficulté</h4>
+                    <p>Ce guide du Ministère de l'Éducation de la Colombie-Britannique fournit des stratégies pédagogiques pour soutenir les élèves présentant des difficultés d'apprentissage et de comportement.</p>
+                </div>
+                <div class="carousel-item">
+                    <a href="contenu d'edunova/les articles/CoursDeDemain2_F-1.pdf" download="article4.pdf">
+                        <img src="contenu d'edunova/les articles/cours de demain.png" alt="Article 4">
+                    </a>
+                    <h4>Stratégies pour l'acquisition du vocabulaire</h4>
+                    <p>Ce guide explore des approches pédagogiques innovantes visant à placer l'élève au centre du processus d'apprentissage, en le rendant acteur de son parcours éducatif.</p>
+
+                <div class="carousel-item">
+                    <a href="contenu d'edunova/les articles/Appuyer les élèves ayant des troubles d'apprentissage en lecture.pdf" download="article5.pdf">
+                        <img src="contenu d'edunova/les articles/lecture.jpeg" alt="Article 5">
+                    </a>
+                    <h4>Lecture - À chaque problème ses solutions</h4>
+                    <p>Ce module du Ministère de l'Éducation du Manitoba offre des stratégies pour aider les élèves ayant des troubles d'apprentissage en lecture, incluant des approches pédagogiques spécifiques.</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-button" id="prevButton">&larr;</button>
+                <button class="carousel-button" id="nextButton">&rarr;</button>
+            </div>
+        </div>
+    
+        
+        <div class="blob" id="blob"></div>
+        <div class="blur" id="blur"></div>
+        <div class="carousel-controls">
+            <button class="carousel-button" id="prevButton">&larr;</button>
+            <button class="carousel-button" id="nextButton">&rarr;</button>
+        </div>
+    </div>
+
+    
+
+    <script>
+        const blob = document.getElementById("blob");
+        document.body.onpointermove = event => {
+            const{ clientX, clientY}= event;
+            blob.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            },{duration:2000, fill:"forwards"});
+            }
+        const carousel = document.getElementById('carousel');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const items = Array.from(carousel.children);
+        let currentIndex = 1;
+
+        const updateCarousel = () => {
+            // Adjust the transform property to show the active item at the center
+            const offset = -currentIndex * 25; // Each item is 25% wide
+            carousel.style.transform = `translateX(${offset}%)`;
+
+            // Update active class for smooth scaling
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === currentIndex);
+            });
+
+        };
+
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % items.length; // Loop to start
+            updateCarousel();
+        };
+
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length; // Loop backwards
+            updateCarousel();
+        };
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Auto-play carousel every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        // Initialize the carousel
+        updateCarousel();
+    </script>
+
+</body>
+</html>

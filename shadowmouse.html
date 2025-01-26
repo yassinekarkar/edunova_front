@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Follow Mouse</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .shadow-box {
+            width: 150px;
+            height: 150px;
+            background-color: #3498db;
+            border-radius: 10px;
+            transition: box-shadow 0.1s ease-out, transform 0.1s ease-out;
+            will-change: transform, box-shadow; /* Hint for performance optimization */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shadow-box" id="box"></div>
+
+    <script>
+        const box = document.getElementById('box');
+
+        document.addEventListener('mousemove', function(event) {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // Get the position of the box relative to the window
+            const boxRect = box.getBoundingClientRect();
+            const boxCenterX = boxRect.left + boxRect.width / 2;
+            const boxCenterY = boxRect.top + boxRect.height / 2;
+
+            // Calculate distance from the box center to the mouse
+            const deltaX = mouseX - boxCenterX;
+            const deltaY = mouseY - boxCenterY;
+
+            // Calculate the shadow intensity and direction based on mouse position
+            const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY), 150); // Max distance
+            const shadowOffsetX = deltaX / 10; // Adjust sensitivity
+            const shadowOffsetY = deltaY / 10; // Adjust sensitivity
+
+            // Apply shadow size, intensity, and smooth transition based on distance and mouse position
+            box.style.boxShadow = `${shadowOffsetX}px ${shadowOffsetY}px ${distance / 2}px rgba(0, 0, 0, 0.4)`;
+
+            // Optional: Slight scale effect when shadow is larger
+            const scale = 1 + (distance / 500); // Scale the box slightly based on distance
+            box.style.transform = `scale(${scale})`;
+        });
+    </script>
+
+</body>
+</html>
